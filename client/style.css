@@ -1,0 +1,15 @@
+body {
+  background: #aeaeae;
+}
+
+.circle {
+  color: rgba(#fff, 0.8);
+  background: blue;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
