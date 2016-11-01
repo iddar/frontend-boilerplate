@@ -1,9 +1,12 @@
 const styles = require('./style.css')
 
-function ready () {
-  let $app = document.querySelector('#app')
+import ReactDOM from 'react-dom'
+import React from 'react'
 
-  $app.innerHTML = `<div class='${styles.circle}'>Hola</div>`
-}
-
-document.addEventListener('DOMContentLoaded', ready)
+ReactDOM.render(
+  <div>
+    <div>Hola</div>
+    <div>Adios</div>
+  </div>,
+  document.getElementById('app')
+)

@@ -10,6 +10,8 @@ module.exports = {
     jsx: './index.js',
     html: './index.html',
     vendor: [
+      'react',
+      'react-dom'
     ]
   },
   output: {
@@ -25,7 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         include: /client/,
-        loader: ExtractTextPlugin.extract(['css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]', 'postcss-loader'])
+        loader: ExtractTextPlugin.extract([
+          'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader'
+        ])
       },
       {
         test: /\.css$/,
@@ -51,6 +56,7 @@ module.exports = {
   ],
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
