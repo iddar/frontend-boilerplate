@@ -1,7 +1,6 @@
 /* global requestAnimationFrame */
 
 import 'react-hot-loader/patch'
-const styles = require('./style.css')
 
 import ReactDOM from 'react-dom'
 import React from 'react'

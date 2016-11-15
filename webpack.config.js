@@ -2,13 +2,14 @@ const rucksack = require('rucksack-css')
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, './client'),
   devtool: 'source-map',
   entry: {
     jsx: './index.js',
-    html: './index.html',
+    publicPath: '/',
     app: [
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/dev-server',
@@ -67,6 +68,9 @@ module.exports = {
   ],
   plugins: [
     // new ExtractTextPlugin('styles.css'), // Use in production
+    new HtmlWebpackPlugin({
+      template: 'template.html'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({

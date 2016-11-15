@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styles from './style.css'
 
 class App extends Component {
   constructor () {
@@ -16,7 +17,7 @@ class App extends Component {
              {count: e.count + 1}
            ))
         )}>HOT reload works and styles reload</div>
-        <div>clic counter: {this.state.count}</div>
+        <div className={styles.color}>Clic counter: {this.state.count}</div>
       </div>
     )
   }
