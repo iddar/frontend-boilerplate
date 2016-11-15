@@ -8,38 +8,36 @@ import React from 'react'
 import App from './App'
 import { AppContainer } from 'react-hot-loader'
 
-console.warn('start')
+console.log('👾 Initial load')
 
-let root
 function init () {
   let App = require('./App').default
-  root = ReactDOM.render((
+  ReactDOM.render((
     <AppContainer>
       <App />
     </AppContainer>
-  ), document.getElementById('app'), root)
+  ), document.getElementById('app'))
 }
 
 init()
 
 if (module.hot) {
+  console.log('🔥 HOT reload active')
   module.hot.accept(
-    JSON.stringify('!!./App'),
+    './App',
     () => requestAnimationFrame(() => {
       flushLogs()
       init()
-      console.warn('init')
     }))
 
-    let log = console.log,
-		logs = [];
-	console.log = (t, ...args) => {
-		if (typeof t==='string' && t.match(/^\[(HMR|WDS)\]/)) {
-			if (t.match(/(up to date|err)/i)) logs.push(t.replace(/^.*?\]\s*/m,''), ...args);
-		}
-		else {
-			log.call(console, t, ...args);
-		}
-	};
-	let flushLogs = () => console.log(`%c🚀 ${logs.splice(0,logs.length).join(' ')}`, 'color:#888;');
+  let log = console.log
+  let logs = []
+  console.log = (t, ...args) => {
+    if (typeof t === 'string' && t.match(/^\[(HMR|WDS)\]/)) {
+      if (t.match(/(up to date|err)/i)) logs.push(t.replace(/^.*?\]\s*/m, ''), ...args)
+    } else {
+      log.call(console, t, ...args)
+    }
+  }
+  let flushLogs = () => console.log(`%c🚀 ${logs.splice(0, logs.length).join(' ')}`, 'color:#888;')
 }
