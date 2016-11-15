@@ -9,6 +9,11 @@ module.exports = {
   entry: {
     jsx: './index.js',
     html: './index.html',
+    app: [
+      'webpack-dev-server/client?http://localhost:8080',
+      'webpack/hot/dev-server',
+      './index.js'
+    ],
     vendor: [
       'react',
       'react-dom'
