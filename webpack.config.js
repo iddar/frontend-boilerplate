@@ -10,7 +10,7 @@ module.exports = {
     jsx: './index.js',
     html: './index.html',
     app: [
-      'webpack-dev-server/client?http://localhost:8080',
+      'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/dev-server',
       './index.js'
     ],
@@ -68,7 +68,6 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: './client',
-    hot: true
+    contentBase: './client'
   }
 }

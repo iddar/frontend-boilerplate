@@ -4,7 +4,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      count: 100
+      count: 400
     }
   }
 
@@ -15,8 +15,8 @@ class App extends Component {
            this.setState((e) => (
              {count: e.count + 1}
            ))
-        )}>Hola</div>
-        <div>Count: {this.state.count}</div>
+        )}>Hola </div>
+        <div>Couddnt: {this.state.count}</div>
       </div>
     )
   }

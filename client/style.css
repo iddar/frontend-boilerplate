@@ -9,3 +9,8 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+body {
+  background: blue;
+  color: white;
+}
