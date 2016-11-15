@@ -32,10 +32,16 @@ module.exports = {
       {
         test: /\.css$/,
         include: /client/,
-        loader: ExtractTextPlugin.extract([
+        // Use in production
+        // loader: ExtractTextPlugin.extract([
+        //   'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+        //   'postcss-loader'
+        // ]),
+        loaders: [
+          'style-loader',
           'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader'
-        ])
+        ]
       },
       {
         test: /\.css$/,
@@ -60,7 +66,7 @@ module.exports = {
     })
   ],
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    // new ExtractTextPlugin('styles.css'), // Use in production
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({

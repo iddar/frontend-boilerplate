@@ -15,8 +15,8 @@ class App extends Component {
            this.setState((e) => (
              {count: e.count + 1}
            ))
-        )}>HOT reload works</div>
-        <div>count: {this.state.count}</div>
+        )}>HOT reload works and styles reload</div>
+        <div>clic counter: {this.state.count}</div>
       </div>
     )
   }
