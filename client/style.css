@@ -9,3 +9,12 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+body {
+  background: green;
+  color: white;
+}
+
+.color {
+  color: magenta;
+}
