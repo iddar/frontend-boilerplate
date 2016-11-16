@@ -1,4 +1,4 @@
 {
   "presets": ["es2017", "stage-3", "react"],
-  "plugins": ["react-hot-loader/babel", "transform-runtime", "transform-es2015-modules-commonjs"]
+  "plugins": ["transform-runtime", "transform-es2015-modules-commonjs", "react-hot-loader/babel"]
 }

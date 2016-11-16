@@ -2,19 +2,13 @@ const rucksack = require('rucksack-css')
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, './client'),
   devtool: 'source-map',
   entry: {
     jsx: './index.js',
-    publicPath: '/',
-    app: [
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/dev-server',
-      './index.js'
-    ],
+    html: './index.html',
     vendor: [
       'react',
       'react-dom'
@@ -33,16 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         include: /client/,
-        // Use in production
-        // loader: ExtractTextPlugin.extract([
-        //   'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
-        //   'postcss-loader'
-        // ]),
-        loaders: [
-          'style-loader',
+        loader: ExtractTextPlugin.extract([
           'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader'
-        ]
+        ])
       },
       {
         test: /\.css$/,
@@ -67,10 +55,7 @@ module.exports = {
     })
   ],
   plugins: [
-    // new ExtractTextPlugin('styles.css'), // Use in production
-    new HtmlWebpackPlugin({
-      template: 'template.html'
-    }),
+    new ExtractTextPlugin('styles.css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
